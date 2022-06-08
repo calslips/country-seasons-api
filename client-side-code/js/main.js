@@ -27,8 +27,11 @@ async function getCountry() {
     for (let season in data.seasons) {
       console.log(season);
       const temps = data.seasons[season].fahrenheitTemps;
+      const months = data.seasons[season].months;
+
       const h3 = document.createElement('h3')
-      h3.textContent = `${season[0].toUpperCase() + season.slice(1)}`;
+      h3.textContent = `${season[0].toUpperCase() + season.slice(1)}` +
+        ` (${months.join(', ')})`;
       div.appendChild(h3);
       const p = document.createElement('p');
       p.textContent = `Average Temp Range: ${temps.minAverageRange[0]} - ${temps.maxAverageRange[1]} F`;
